@@ -1,0 +1,65 @@
+@prefix : <http://example.org/ontology#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+# Taxonomy for Fysiska Personar
+:FysiskPerson rdfs:subClassOf :Person .
+
+# Properties
+:harNamn rdf:type owl:ObjectProperty .
+:harFolkbokföringsfastighet rdf:type owl:ObjectProperty .
+
+# Subcategories of Namn
+:Förnamn rdf:type owl:Class .
+:TilltalsnamnKod rdf:type owl:Class .
+:Mellannamn rdf:type owl:Class .
+:Efternamn rdf:type owl:Class .
+:Aviseringsnamn rdf:type owl:Class .
+
+# Subcategories of Folkbokföringsfastighet
+:Län rdf:type owl:Class .
+:Kommun rdf:type owl:Class .
+:Församling rdf:type owl:Class .
+:Folkbokföringsdatum rdf:type owl:Class .
+:Fastighetsbeteckning rdf:type owl:Class .
+
+# Define subproperties for each subcategory
+:harFörnamn rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Förnamn .
+
+:harTilltalsnamnKod rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :TilltalsnamnKod .
+
+:harMellannamn rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Mellannamn .
+
+:harEfternamn rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Efternamn .
+
+:harAviseringsnamn rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Aviseringsnamn .
+
+:harLän rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Län .
+
+:harKommun rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Kommun .
+
+:harFörsamling rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Församling .
+
+:harFolkbokföringsdatum rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Folkbokföringsdatum .
+
+:harFastighetsbeteckning rdf:type owl:ObjectProperty ;
+    rdfs:domain :FysiskPerson ;
+    rdfs:range :Fastighetsbeteckning .

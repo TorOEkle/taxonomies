@@ -1,65 +1,52 @@
 @prefix : <http://example.org/ontology#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-# Taxonomy for Fysiska Personar
-:FysiskPerson rdfs:subClassOf :Person .
+# Individuals
+:Person1 a :Person .
 
-# Properties
-:harNamn rdf:type owl:ObjectProperty .
-:harFolkbokföringsfastighet rdf:type owl:ObjectProperty .
+# Names
+:Namn1 a :Namn ;
+    :harFörnamn :Förnamn1 ;
+    :harTilltalsnamn :Tilltalsnamn1 ;
+    :harMellannamn :Mellannamn1 ;
+    :harEfternamn :Efternamn1 ;
+    :harAviseringsnamn :Aviseringsnamn1 .
 
-# Subcategories of Namn
-:Förnamn rdf:type owl:Class .
-:TilltalsnamnKod rdf:type owl:Class .
-:Mellannamn rdf:type owl:Class .
-:Efternamn rdf:type owl:Class .
-:Aviseringsnamn rdf:type owl:Class .
+:Förnamn1 a :Förnamn ;
+    :kod "John" .
 
-# Subcategories of Folkbokföringsfastighet
-:Län rdf:type owl:Class .
-:Kommun rdf:type owl:Class .
-:Församling rdf:type owl:Class .
-:Folkbokföringsdatum rdf:type owl:Class .
-:Fastighetsbeteckning rdf:type owl:Class .
+:Tilltalsnamn1 a :Tilltalsnamn ;
+    :kod "Johnny" .
 
-# Define subproperties for each subcategory
-:harFörnamn rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Förnamn .
+:Mellannamn1 a :Mellannamn ;
+    :kod "Doe" .
 
-:harTilltalsnamnKod rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :TilltalsnamnKod .
+:Efternamn1 a :Efternamn ;
+    :kod "Doe" .
 
-:harMellannamn rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Mellannamn .
+:Aviseringsnamn1 a :Aviseringsnamn ;
+    :kod "JD" .
 
-:harEfternamn rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Efternamn .
+# Residential Properties
+:Folkbokföringsfastighet1 a :Folkbokföringsfastighet ;
+    :harLän :Län1 ;
+    :harKommun :Kommun1 ;
+    :harFörsamling :Församling1 ;
+    :harFolkbokföringsdatum "2023-08-28"^^xsd:date ;
+    :harFastighetsbeteckning :Fastighetsbeteckning1 .
 
-:harAviseringsnamn rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Aviseringsnamn .
+:Län1 a :Län ;
+    :kod "Stockholm" .
 
-:harLän rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Län .
+:Kommun1 a :Kommun ;
+    :kod "Stockholm" .
 
-:harKommun rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Kommun .
+:Församling1 a :Församling ;
+    :kod "City" .
 
-:harFörsamling rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Församling .
+:Fastighetsbeteckning1 a :Fastighetsbeteckning ;
+    :kod "ABC123" .
 
-:harFolkbokföringsdatum rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Folkbokföringsdatum .
-
-:harFastighetsbeteckning rdf:type owl:ObjectProperty ;
-    rdfs:domain :FysiskPerson ;
-    rdfs:range :Fastighetsbeteckning .
+# Relationships
+:Person1 :harNamn :Namn1 ;
+    :harFolkbokföringsfastighet :Folkbokföringsfastighet1 .

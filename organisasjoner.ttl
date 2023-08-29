@@ -1,0 +1,182 @@
+@prefix : <http://example.org/ontology#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://example.org/organisationslista> a :Organisationslista ;
+    :hasOrganisation :org1 .
+
+:org1 a :Organisation ;
+    :hasIdentitetsbeteckning :ident1 ;
+    :namnskyddslopnummer 2 ;
+    :hasOrganisationsnamn :orgnamn1 ;
+    :hasOrganisationsform :orgform1 ;
+    :hasOrganisationsstatus :orgstatus1 ;
+    :hasOrganisationsdatum :orgdatum1 ;
+    :hasHemvistkommun :hemvist1 ;
+    :hasRakenskapsar :rakenskapsar1 ;
+    :verksamhetsbeskrivning "string" ;
+    :hasOrganisationsadresser :orgadress1 ;
+    :hasFirmateckning :firmateckning1 ;
+    :hasSarskildaForetagsnamn :sarskildaNamn1 ;
+    :hasForetagsnamnPaFrammandeSprak :foretagsnamnSprak1 ;
+    :hasFunktionarer :funktionar1 ;
+    :hasAktieinformation :aktieinfo1 .
+
+:ident1 a :Identitetsbeteckning ;
+    :organisationsnummer "string" ;
+    :personnummer "string" ;
+    :samordningsnummer "string" ;
+    :gdNummer "string" ;
+    :utlandskIdentitetsbeteckning "string" ;
+    :fodelsedatum "string" .
+
+:orgnamn1 a :Organisationsnamn ;
+    :typ "string" ;
+    :namn "string" .
+
+:orgform1 a :Organisationsform ;
+    :kod "string" ;
+    :klartext "string" .
+
+:orgstatus1 a :Organisationsstatus ;
+    :kod "string" ;
+    :klartext "string" ;
+    :datum "2023-08-28"^^xsd:date .
+
+:orgdatum1 a :Organisationsdatum ;
+    :registreringsdatum "2023-08-28"^^xsd:date ;
+    :bildatDatum "2023-08-28"^^xsd:date .
+
+:hemvist1 a :Hemvistkommun ;
+    :typ "string" ;
+    :lanForHemvistkommun :lanHemvist1 ;
+    :kommun :kommun1 .
+
+:lanHemvist1 a :Lan ;
+    :kod "string" ;
+    :klartext "string" .
+
+:kommun1 a :Kommun ;
+    :kod "string" ;
+    :klartext "string" .
+
+:rakenskapsar1 a :Rakenskapsar ;
+    :rakenskapsarInleds "string" ;
+    :rakenskapsarAvslutas "string" .
+
+:orgadress1 a :Organisationsadresser ;
+    :hasPostadress :postadress1 ;
+    :epostadress "string" .
+
+:postadress1 a :Postadress ;
+    :coAdress "string" ;
+    :adress "string" ;
+    :postnummer "string" ;
+    :postort "string" ;
+    :land :land1 .
+
+:land1 a :Land ;
+    :kod "string" ;
+    :klartext "string" .
+
+:firmateckning1 a :Firmateckning ;
+    :klartext "string" .
+
+:sarskildaNamn1 a :SarskildaForetagsnamn ;
+    :hasOrganisationsnamn :sarskiltOrgnamn1 ;
+    :registreringsdatum "2023-08-28"^^xsd:date ;
+    :verksamhetsbeskrivning "string" ;
+    :beslutAvStamma "string" ;
+    :beslutstyp "string" .
+
+:sarskiltOrgnamn1 a :Organisationsnamn ;
+    :typ "string" ;
+    :namn "string" .
+
+:foretagsnamnSprak1 a :ForetagsnamnPaFrammandeSprak ;
+    :hasOrganisationsnamn :sprakOrgnamn1 ;
+    :registreringsdatum "2023-08-28"^^xsd:date ;
+    :verksamhetsbeskrivning "string" ;
+    :beslutAvStamma "string" ;
+    :beslutstyp "string" .
+
+:sprakOrgnamn1 a :Organisationsnamn ;
+    :typ "string" ;
+    :namn "string" .
+
+:funktionar1 a :Funktionarer ;
+    :hasFunktionar :funktionarEntry1 .
+
+:funktionarEntry1 a :FunktionarEntry ;
+    :hasFunktionarsroller :funktionarRoller1 ;
+    :hasPersonnamn :personnamn1 ;
+    :hasOrganisationsnamn :funkOrgnamn1 ;
+    :hasIdentitetsbeteckning :identFunk1 ;
+    :hasPostadress :postadressFunk1 .
+
+:funktionarRoller1 a :Funktionarsroller ;
+    :kod "string" ;
+    :klartext "string" .
+
+:personnamn1 a :Personnamn ;
+    :fornamn "string" ;
+    :efternamn "string" .
+
+:funkOrgnamn1 a :Organisationsnamn ;
+    :typ "string" ;
+    :namn "string" .
+
+:identFunk1 a :Identitetsbeteckning ;
+    :organisationsnummer "string" ;
+    :personnummer "string" ;
+    :samordningsnummer "string" ;
+    :gdNummer "string" ;
+    :utlandskIdentitetsbeteckning "string" ;
+    :fodelsedatum "string" .
+
+:postadressFunk1 a :Postadress ;
+    :coAdress "string" ;
+    :adress "string" ;
+    :postnummer "string" ;
+    :postort "string" ;
+    :land :land2 .
+
+:land2 a :Land ;
+    :kod "string" ;
+    :klartext "string" .
+
+:aktieinfo1 a :Aktieinformation ;
+    :hasAktiekapital :aktiekapital1 ;
+    :antalAktier 1200 ;
+    :hasAktiegranser :aktiegranser1 ;
+    :hasAktieslag :aktieslag1 ;
+    :fritext "Antalet aktier av respektive slag får motsvara högst hela antalet aktier i bolaget." .
+
+:aktiekapital1 a :Aktiekapital ;
+    :belopp 12000 ;
+    :valuta "SEK" .
+
+:aktiegranser1 a :Aktiegranser ;
+    :hasAktiekapitalGranser :aktiekapitalGranser1 ;
+    :hasAntalAktierGranser :antalAktierGranser1 ;
+    :valuta "SEK" .
+
+:aktiekapitalGranser1 a :AktiekapitalGranser ;
+    :lagst 25000 ;
+    :hogst 100000 .
+
+:antalAktierGranser1 a :AntalAktierGranser ;
+    :lagst 1000 ;
+    :hogst 10000 .
+
+:aktieslag1 a :Aktieslag ;
+    :hasAktieslagEntry :aktieslagEntry1 .
+
+:aktieslagEntry1 a :AktieslagEntry ;
+    :namn "A" ;
+    :antal 1000 ;
+    :hasAktieslagGranser :aktieslagGranser1 ;
+    :rostvarde "1" .
+
+:aktieslagGranser1 a :AktieslagGranser ;
+    :lagst 1000 ;
+    :hogst 10000 .

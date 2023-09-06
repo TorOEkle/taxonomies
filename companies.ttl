@@ -1,4 +1,5 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://example.org/company#> .
 
 # Define Classes
 ex:Company rdf:type rdf:Class .
@@ -44,3 +45,4 @@ ex:Company2 ex:hasGrossRevenue "4095000" .
 ex:Company2 ex:hasProfit "279000" .
 ex:Company2 ex:hasProfitMargin "0.068" .
 
+# Define properties for Company3 and more...

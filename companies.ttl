@@ -1,4 +1,4 @@
-@prefix ex: <https://ekle.org> .
+@prefix ex: <https://ekle.org/company#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 

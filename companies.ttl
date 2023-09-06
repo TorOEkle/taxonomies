@@ -1,0 +1,46 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Define Classes
+ex:Company rdf:type rdf:Class .
+ex:Date rdf:type rdf:Class .
+
+# Define Properties
+ex:hasId rdf:type rdf:Property .
+ex:hasName rdf:type rdf:Property .
+ex:hasStartDate rdf:type rdf:Property .
+ex:hasEndDate rdf:type rdf:Property .
+ex:hasNumberTrained rdf:type rdf:Property .
+ex:hasNumberWorkforce rdf:type rdf:Property .
+ex:hasNumberReports rdf:type rdf:Property .
+ex:hasGrossRevenue rdf:type rdf:Property .
+ex:hasProfit rdf:type rdf:Property .
+ex:hasProfitMargin rdf:type rdf:Property .
+
+# Define Individuals
+ex:Company1 rdf:type ex:Company .
+ex:Company2 rdf:type ex:Company .
+ex:Company3 rdf:type ex:Company .
+# Define properties for Company1
+ex:Company1 ex:hasId "1" .
+ex:Company1 ex:hasName "SkillSwede" .
+ex:Company1 ex:hasStartDate "2007-03-15" .
+ex:Company1 ex:hasEndDate "2021-08-20" .
+ex:Company1 ex:hasNumberTrained "758" .
+ex:Company1 ex:hasNumberWorkforce "219" .
+ex:Company1 ex:hasNumberReports "834" .
+ex:Company1 ex:hasGrossRevenue "4587000" .
+ex:Company1 ex:hasProfit "-742000" .
+ex:Company1 ex:hasProfitMargin "-0.162" .
+
+# Define properties for Company2
+ex:Company2 ex:hasId "2" .
+ex:Company2 ex:hasName "JobMastery" .
+ex:Company2 ex:hasStartDate "2015-09-28" .
+ex:Company2 ex:hasEndDate "2023-05-10" .
+ex:Company2 ex:hasNumberTrained "492" .
+ex:Company2 ex:hasNumberWorkforce "243" .
+ex:Company2 ex:hasNumberReports "522" .
+ex:Company2 ex:hasGrossRevenue "4095000" .
+ex:Company2 ex:hasProfit "279000" .
+ex:Company2 ex:hasProfitMargin "0.068" .
+

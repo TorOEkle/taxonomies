@@ -1,0 +1,2235 @@
+@prefix : <http://kg.arbetsformedlingen.se/person/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://kg.arbetsformedlingen.se/person/> .
+
+<http://kg.arbetsformedlingen.se/person/> rdf:type owl:Ontology ;
+                                           rdfs:label "Person ontologi"@sv .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://qudt.org/vocab/unit/DeciM2
+<http://qudt.org/vocab/unit/DeciM2> rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#gMonth
+xsd:gMonth rdf:type rdfs:Datatype .
+
+
+###  https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/EUR
+<https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/EUR> rdf:type rdfs:Datatype .
+
+
+###  https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/SEK
+<https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/SEK> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://kg.arbetsformedlingen.se/person/adoptivfar
+:adoptivfar rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relation ;
+            rdfs:domain :FysiskPerson ;
+            rdfs:range :FysiskPerson ;
+            owl:propertyDisjointWith :adoptivmor ;
+            rdfs:label "adoptivfar"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/adoptivmor
+:adoptivmor rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relation ;
+            rdfs:domain :FysiskPerson ;
+            rdfs:range :FysiskPerson ;
+            rdfs:label "adoptivmor"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/adoptivtBarn
+:adoptivtBarn rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :relation ;
+              rdfs:domain :FysiskPerson ;
+              rdfs:range :FysiskPerson ;
+              rdfs:label "adoptivt barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/akteslag
+:akteslag rdf:type owl:ObjectProperty ;
+          rdfs:domain :Aktier ;
+          rdfs:range :Aktieslag ;
+          rdfs:label "akteslag"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/aktieBeteckning
+:aktieBeteckning rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Aktieslag ;
+                 rdfs:range :Aktieslag ;
+                 rdfs:label "aktie beteckning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/aktier
+:aktier rdf:type owl:ObjectProperty ;
+        rdfs:domain :Företag ;
+        rdfs:range :Aktier .
+
+
+###  http://kg.arbetsformedlingen.se/person/andelsfastighet
+:andelsfastighet rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :fastighet ;
+                 rdfs:domain :Företag ;
+                 rdfs:range :Andelsfastighet ;
+                 rdfs:label "andelsfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/annanPerson
+:annanPerson rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :relation ;
+             rdfs:domain :FysiskPerson ;
+             rdfs:range :FysiskPerson ;
+             rdfs:label "annan person"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/arbetsgivarregistrerad
+:arbetsgivarregistrerad rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Företag ;
+                        rdfs:range :Arbetsgivarregistrerad ;
+                        rdfs:label "arbetsgivarregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/arbetsställe
+:arbetsställe rdf:type owl:ObjectProperty ;
+              rdfs:domain :Företag ;
+              rdfs:range :Arbetsställe .
+
+
+###  http://kg.arbetsformedlingen.se/person/arbetsställeStatus
+:arbetsställeStatus rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Arbetsställe ;
+                    rdfs:range :ArbetsställeStatus ;
+                    rdfs:label "arbetsställe status"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/arbetsställeTyp
+:arbetsställeTyp rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Arbetsställe ;
+                 rdfs:range :ArbetsställeTyp ;
+                 rdfs:label "arbetsställe typ"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avregistrerad
+:avregistrerad rdf:type owl:ObjectProperty ;
+               rdfs:domain :FysiskPerson ;
+               rdfs:range :Avregistrerad ;
+               rdfs:label "avregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avregistreringsorsak
+:avregistreringsorsak rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Avregistrerad ;
+                      rdfs:label "avregistreringsorsak"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avvecklingsförfarande
+:avvecklingsförfarande rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Företag ;
+                       rdfs:range :Avvecklingsförfarande ;
+                       rdfs:label "avvecklingsförfarande"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/barn
+:barn rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :relation ;
+      rdf:type owl:AsymmetricProperty ;
+      rdfs:domain :FysiskPerson ;
+      rdfs:range :FysiskPerson ;
+      rdfs:label "barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/belägenhetsadress
+:belägenhetsadress rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :kontaktväg ;
+                   rdfs:domain :Fastighet ;
+                   rdfs:range :Belägenhetsadress ;
+                   rdfs:label "belägenhetsadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/bortadopteratBarn
+:bortadopteratBarn rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :relation ;
+                   rdfs:domain :FysiskPerson ;
+                   rdfs:range :FysiskPerson ;
+                   rdfs:label "bortadopterat barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/civilstånd
+:civilstånd rdf:type owl:ObjectProperty ;
+            rdfs:domain :FysiskPerson ;
+            rdfs:range :Civilstånd ;
+            rdfs:label "civilstånd"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/dödföttBarn
+:dödföttBarn rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :relation ;
+             rdfs:domain :FysiskPerson ;
+             rdfs:range :DödföttBarn ;
+             rdfs:label "dödfött barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/elektroniskAdress
+:elektroniskAdress rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :kontaktväg ;
+                   rdfs:domain :Kontaktväg ;
+                   rdfs:range :ElektroniskAdress ;
+                   rdfs:label "elektronisk adress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/far
+:far rdf:type owl:ObjectProperty ;
+     rdfs:subPropertyOf :relation ;
+     rdf:type owl:AsymmetricProperty ;
+     rdfs:domain :FysiskPerson ;
+     rdfs:range :AldrigFolkbokfördRelationsperson ,
+                :FysiskPerson ;
+     owl:propertyDisjointWith :mor ;
+     rdfs:label "far"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/fastighet
+:fastighet rdf:type owl:ObjectProperty ;
+           rdfs:domain :Person ;
+           rdfs:range :Fastighet .
+
+
+###  http://kg.arbetsformedlingen.se/person/fiskesamfällighet
+:fiskesamfällighet rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :fastighet ;
+                   rdfs:domain :Företag ;
+                   rdfs:range :Fiskesamfällighet ;
+                   rdfs:label "fiskesamfällighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/folkbokföringsfastighet
+:folkbokföringsfastighet rdf:type owl:ObjectProperty ;
+                         rdfs:domain :FysiskPerson ;
+                         rdfs:range :Folkbokföringsfastighet ;
+                         rdfs:label "folkbokföringsfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/folkbokföringstyp
+:folkbokföringstyp rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Folkbokföringsfastighet ;
+                   rdfs:range :Folkbokföringstyp ;
+                   rdfs:label "folkbokföringstyp"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/födelseort
+:födelseort rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :geografiskaRelationer ;
+            rdfs:domain :Ort ;
+            rdfs:range :GeografisktBegrepp ;
+            rdfs:label "födelseort"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/födelseortUtlandStyrkt
+:födelseortUtlandStyrkt rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :geografiskaRelationer ;
+                        rdfs:domain :FysiskPerson ;
+                        rdfs:range :Ort ;
+                        rdfs:label "födelseort utland styrkt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/företagsrekonstruksjon
+:företagsrekonstruksjon rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :avvecklingsförfarande ;
+                        rdfs:domain :Avvecklingsförfarande ;
+                        rdfs:range :Företagsrekonstruksjon ;
+                        rdfs:label "företagsrekonstruksjon"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/församling
+:församling rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :geografiskaRelationer ;
+            rdfs:domain :Folkbokföringsfastighet ;
+            rdfs:range :Församling ;
+            rdfs:label "församling"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/förälder
+:förälder rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :relation ;
+          rdf:type owl:AsymmetricProperty ;
+          rdfs:domain :FysiskPerson ;
+          rdfs:range :FysiskPerson ;
+          rdfs:label "förälder"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/geografiskaRelationer
+:geografiskaRelationer rdf:type owl:ObjectProperty ;
+                       rdfs:label "geografiska relationer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/godkändForF-skatt
+:godkändForF-skatt rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Företag ;
+                   rdfs:range :GodkändForF-skatt ;
+                   rdfs:label "godkänd for F-skatt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsbeteckning
+:identitetsbeteckning rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Person ;
+                      rdfs:range :Identitetsbeteckning ;
+                      rdfs:label "Identitetsbeteckning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsbeteckningTilldelandeMyndighet
+:identitetsbeteckningTilldelandeMyndighet rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Identitetsbeteckning ;
+                                          rdfs:range :Myndighet ;
+                                          rdfs:comment """Uppgift om vilken myndighet som tilldelat personen identitetsbeteckningen, tillika den myndighet som har registrerat den juridiska eller fysiska personen första gången.
+
+Möjliga värden: Bolagsverket, Statistiska centralbyrån, Skatteverket, Havs- och vattenmyndigheten, Kammarkollegiet, Lantmäteriet och Inspektionen för arbetslöshetsförsäkring."""@sv ;
+                                          rdfs:label "Identitetsbeteckning tilldelande myndighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsstatus
+:identitetsstatus rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Samordningsnummeruppgifter ;
+                  rdfs:range :Identitetsstatus ;
+                  rdfs:label "identitetsstatus"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/invandringsland
+:invandringsland rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :geografiskaRelationer ;
+                 rdfs:domain :Invandringsuppgifter ;
+                 rdfs:range :Land ;
+                 rdfs:label "invandringsland"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/invandringsortNorden
+:invandringsortNorden rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :geografiskaRelationer ;
+                      rdfs:domain :Invandringsuppgifter ;
+                      rdfs:range :Ort ;
+                      rdfs:label "invandringsort Norden"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/invandringsuppgifter
+:invandringsuppgifter rdf:type owl:ObjectProperty ;
+                      rdfs:domain :FysiskPerson ;
+                      rdfs:range :Invandringsuppgifter ;
+                      rdfs:label "invandringsuppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/kommun
+:kommun rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :geografiskaRelationer ;
+        rdfs:domain :Belägenhetsadress ,
+                    :Folkbokföringsfastighet ,
+                    :Postadress ;
+        rdfs:range :Kommun ;
+        rdfs:label "kommun"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/konkurs
+:konkurs rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :avvecklingsförfarande ;
+         rdfs:domain :Avvecklingsförfarande ,
+                     :Person ;
+         rdfs:range :Konkurs ;
+         rdfs:label "konkurs"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/kontaktväg
+:kontaktväg rdf:type owl:ObjectProperty ;
+            rdfs:domain :Arbetsställe ,
+                        :Person ;
+            rdfs:range :Kontaktväg .
+
+
+###  http://kg.arbetsformedlingen.se/person/land
+:land rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :geografiskaRelationer ;
+      rdfs:domain :Medborgarskap ,
+                  :Ort ,
+                  :Utlandsadress ;
+      rdfs:range :Land ;
+      rdfs:label "land"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/likvidation
+:likvidation rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :avvecklingsförfarande ;
+             rdfs:domain :Avvecklingsförfarande ;
+             rdfs:range :Likvidation ;
+             rdfs:label "likvidation"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/län
+:län rdf:type owl:ObjectProperty ;
+     rdfs:subPropertyOf :geografiskaRelationer ;
+     rdfs:domain :Belägenhetsadress ,
+                 :Folkbokföringsfastighet ,
+                 :Ort ,
+                 :Postadress ;
+     rdfs:range :Län ;
+     rdfs:label "län"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/make
+:make rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :relation ;
+      rdf:type owl:SymmetricProperty ;
+      rdfs:domain :FysiskPerson ;
+      rdfs:range :FysiskPerson ;
+      rdfs:label "make/maka"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/medborgarskapStyrkt
+:medborgarskapStyrkt rdf:type owl:ObjectProperty ;
+                     rdfs:domain :FysiskPerson ;
+                     rdfs:range :Medborgarskap ;
+                     rdfs:label "medborgarskap styrkt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/momsregistrerad
+:momsregistrerad rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Företag ;
+                 rdfs:range :Momsregistrerad .
+
+
+###  http://kg.arbetsformedlingen.se/person/mor
+:mor rdf:type owl:ObjectProperty ;
+     rdfs:subPropertyOf :relation ;
+     rdf:type owl:AsymmetricProperty ;
+     rdfs:domain :FysiskPerson ;
+     rdfs:range :FysiskPerson ;
+     rdfs:label "mor"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nyttjarFörvaltarFastighet
+:nyttjarFörvaltarFastighet rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :fastighet ;
+                           rdfs:domain :Företag ;
+                           rdfs:range :Fastighet ;
+                           rdfs:label "nyttjar/förvaltar fastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/näringsförbud
+:näringsförbud rdf:type owl:ObjectProperty ;
+               rdfs:domain :FysiskPerson ;
+               rdfs:range :Näringsförbud ;
+               rdfs:label "näringsförbud"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/näringsgren
+:näringsgren rdf:type owl:ObjectProperty ;
+             rdfs:domain :Arbetsställe ,
+                         :Företag ;
+             rdfs:range :Näringsgren ;
+             rdfs:label "näringsgren"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/orsakIdentitetsstatus
+:orsakIdentitetsstatus rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Identitetsstatus ;
+                       rdfs:range :OrsakIdentitetsstatus ;
+                       rdfs:label "orsak identitetsstatus"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/partner
+:partner rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :relation ;
+         rdf:type owl:SymmetricProperty ;
+         rdfs:domain :FysiskPerson ;
+         rdfs:range :FysiskPerson ;
+         rdfs:label "partner"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/postadress
+:postadress rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :kontaktväg ;
+            rdfs:domain :Kontaktväg ;
+            rdfs:range :Postadress ;
+            rdfs:label "postadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/relation
+:relation rdf:type owl:ObjectProperty ;
+          rdfs:domain :FysiskPerson ;
+          rdfs:range :Relation ;
+          rdfs:comment "relation"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/relationsstatus
+:relationsstatus rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Relation ;
+                 rdfs:range :Relationsstatus ;
+                 rdfs:label "relationsstatus"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/samfällighet
+:samfällighet rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :fastighet ;
+              rdfs:domain :Företag ;
+              rdfs:range :Samfällighet ;
+              rdfs:label "samfällighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/samordningsnummeruppgifter
+:samordningsnummeruppgifter rdf:type owl:ObjectProperty ;
+                            rdfs:domain :FysiskPerson ;
+                            rdfs:range :Samordningsnummeruppgifter ;
+                            rdfs:label "samordningsnummeruppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/skatteform
+:skatteform rdf:type owl:ObjectProperty ;
+            rdfs:domain :GodkändForF-skatt ;
+            rdfs:range :Skatteform ;
+            rdfs:label "skatteform"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/taxeradÄgare
+:taxeradÄgare rdf:type owl:ObjectProperty ;
+              rdfs:domain :Fastighet ;
+              rdfs:range :Person ;
+              rdfs:label "taxerad ägare"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/telefonnummer
+:telefonnummer rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :kontaktväg ;
+               rdfs:domain :Kontaktväg ,
+                           :Telefonnummer ;
+               rdfs:range :Telefonnummer .
+
+
+###  http://kg.arbetsformedlingen.se/person/utvandringsland
+:utvandringsland rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :geografiskaRelationer ;
+                 rdfs:domain :FysiskPerson ;
+                 rdfs:range :Land ;
+                 rdfs:label "utvandringsland"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/vårdnadshavare
+:vårdnadshavare rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :relation ;
+                owl:inverseOf :vårdnadshavareFör ;
+                rdfs:domain :FysiskPerson ;
+                rdfs:range :FysiskPerson ;
+                rdfs:label "vårdnadshavare"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/vårdnadshavareFör
+:vårdnadshavareFör rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :relation ;
+                   rdfs:domain :FysiskPerson ;
+                   rdfs:range :FysiskPerson ;
+                   rdfs:label "vårdnadshavareFör"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ägerFastighet
+:ägerFastighet rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :fastighet ;
+               rdfs:domain :Företag ;
+               rdfs:range :Fastighet ;
+               rdfs:label "äger fastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ägerlägensfastighet
+:ägerlägensfastighet rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :fastighet ;
+                     rdfs:domain :Företag ;
+                     rdfs:range :Ägarlägenhetsfastighet ;
+                     rdfs:label "ägerlägensfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/övertagandeIFusion
+:övertagandeIFusion rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :avvecklingsförfarande ;
+                    rdfs:domain :Avvecklingsförfarande ;
+                    rdfs:range :ÖvertagandeIFusion ;
+                    rdfs:label "övertagande i fusion"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/övertagandeVidDelning
+:övertagandeVidDelning rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :avvecklingsförfarande ;
+                       rdfs:domain :Avvecklingsförfarande ;
+                       rdfs:range :ÖvertagandeVidDelning ;
+                       rdfs:label "övertagande vid delning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/3DFastighet
+<http://kg.arbetsformedlingen.se/person/3DFastighet> rdf:type owl:ObjectProperty ;
+                                                     rdfs:subPropertyOf :fastighet ;
+                                                     rdfs:domain :Företag ;
+                                                     rdfs:range <http://kg.arbetsformedlingen.se/person/3D-Fastighet> ;
+                                                     rdfs:label "3D fastighet"@sv .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://kg.arbetsformedlingen.se/person/SNI-kod
+:SNI-kod rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :kod ;
+         rdfs:domain :Näringsgren ;
+         rdfs:range xsd:string ;
+         rdfs:label "SNI-kod"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/URI-adress
+:URI-adress rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :adress ;
+            rdfs:domain :ElektroniskAdress ;
+            rdfs:range xsd:anyURI ;
+            rdfs:label "URI-adress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/UUIDFörAdress
+:UUIDFörAdress rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :adress ;
+               rdfs:domain :Folkbokföringsadress ;
+               rdfs:range xsd:string ;
+               rdfs:label "UUID för adress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/UUIDFörFastighet
+:UUIDFörFastighet rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :adress ;
+                  rdfs:domain :Folkbokföringsadress ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "UUID för fastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/UUIDFörLägenhet
+:UUIDFörLägenhet rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :adress ;
+                 rdfs:domain :Folkbokföringsadress ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "UUID för lägenhet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/adress
+:adress rdf:type owl:DatatypeProperty ;
+        rdfs:label "adress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/adressområde
+:adressområde rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :adress ;
+              rdfs:domain :Belägenhetsadress ;
+              rdfs:range xsd:string ;
+              rdfs:label "adressområde"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/adressplats
+:adressplats rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :adress ;
+             rdfs:domain :Belägenhetsadress ;
+             rdfs:range xsd:string ;
+             rdfs:label "adressplats"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/aktiekapital
+:aktiekapital rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Aktier ;
+              rdfs:range <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/SEK> ;
+              rdfs:label "aktiekapital"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/aktiekapitalRedovisningsvaluta
+:aktiekapitalRedovisningsvaluta rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Aktier ;
+                                rdfs:range <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/EUR> ,
+                                           <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/SEK> ;
+                                rdfs:label "aktiekapital redovisningsvaluta"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/anmälanInkom
+:anmälanInkom rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Arbetsgivarregistrerad ;
+              rdfs:range xsd:dateTime ;
+              rdfs:label "anmälan inkom"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/antalAnställdaStorleksklass
+:antalAnställdaStorleksklass rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :Arbetsställe ;
+                             rdfs:range xsd:string ;
+                             rdfs:label "antal anställda storleksklass"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/antalBarnPerBörd
+:antalBarnPerBörd rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :DödföttBarn ;
+                  rdfs:range xsd:integer ;
+                  rdfs:label "antal barn per börd"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/anteckning
+:anteckning rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Fastighet ;
+            rdfs:range xsd:string ;
+            rdfs:label "anteckning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/areal
+:areal rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Fastighet ;
+       rdfs:range <http://qudt.org/vocab/unit/DeciM2> ;
+       rdfs:label "areal"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avfördAnledning
+:avfördAnledning rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Avvecklingsförfarande ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "avförd anledning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avfördDatum
+:avfördDatum rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :datum ;
+             rdfs:domain :Avvecklingsförfarande ;
+             rdfs:range xsd:date ;
+             rdfs:label "avförd datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/aviseringsnamn
+:aviseringsnamn rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :namn ;
+                rdfs:domain :FysiskPerson ;
+                rdfs:range xsd:string ;
+                rdfs:label "aviseringsnamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avlidenDatum
+:avlidenDatum rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :datum ;
+              rdfs:domain :FysiskPerson ,
+                          :Samordningsnummeruppgifter ;
+              rdfs:range xsd:date ;
+              rdfs:label "avliden datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avregistreradDatum
+:avregistreradDatum rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :registreringsdatum ;
+                    rdfs:domain :Arbetsgivarregistrerad ,
+                                :Momsregistrerad ;
+                    rdfs:range xsd:date ;
+                    rdfs:label "avregistrerad datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avslutad
+:avslutad rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :avfördDatum ;
+          rdfs:domain :Avvecklingsförfarande ;
+          rdfs:range xsd:date ;
+          rdfs:label "avslutad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avslutadÖverskott
+:avslutadÖverskott rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Konkurs ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:label "avslutad överskott"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/avtalsservitut
+:avtalsservitut rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Fastighet ;
+                rdfs:range xsd:string ;
+                rdfs:label "avtalsservitut"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/benämning
+:benämning rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Arbetsställe ;
+           rdfs:range xsd:string ;
+           rdfs:label "benämning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/beslutad
+:beslutad rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :avfördDatum ;
+          rdfs:domain :Likvidation ;
+          rdfs:range xsd:date ;
+          rdfs:label "beslutad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/bestämmelser
+:bestämmelser rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Fastighet ;
+              rdfs:range xsd:string ;
+              rdfs:label "bestämmelser"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/beteckning
+:beteckning rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Fastighet ;
+            rdfs:range xsd:string ;
+            rdfs:label "beteckning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/careOf
+:careOf rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :adress ;
+        rdfs:domain :Folkbokföringsadress ,
+                    :FöregåendeFolkbokföringsadress ,
+                    :SärskildPostadress ;
+        rdfs:range xsd:string ;
+        rdfs:label "care of"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/cfarnr
+:cfarnr rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Arbetsställe ;
+        rdfs:range xsd:string ;
+        rdfs:label "cfarnr"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/civilstånddatum
+:civilstånddatum rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :datum ;
+                 rdfs:domain :FysiskPerson ;
+                 rdfs:range xsd:date ;
+                 rdfs:label "civilstånddatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/civilståndsdatum
+:civilståndsdatum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :datum ;
+                  rdfs:domain :FysiskPerson ;
+                  rdfs:range xsd:date ;
+                  rdfs:label "civilståndsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/datum
+:datum rdf:type owl:DatatypeProperty ;
+       rdfs:comment "Samling for relasjoner knyttet til dato."@no ;
+       rdfs:label "datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/deklarasjonsperiod
+:deklarasjonsperiod rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Momsregistrerad ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "deklarasjonsperiod"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/dispens
+:dispens rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Näringsförbud .
+
+
+###  http://kg.arbetsformedlingen.se/person/dispensGiltigtFrån
+:dispensGiltigtFrån rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :dispens ;
+                    rdfs:domain :Näringsförbud ;
+                    rdfs:range xsd:dateTime ;
+                    rdfs:label "dispens giltigt från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/dispensGiltigtTill
+:dispensGiltigtTill rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :dispens ;
+                    rdfs:domain :Näringsförbud ;
+                    rdfs:range xsd:dateTime ;
+                    rdfs:label "dispens giltigt till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/dispensÅterkallad
+:dispensÅterkallad rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :dispens ;
+                   rdfs:domain :Näringsförbud ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "dispens återkallad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/distriktskod
+:distriktskod rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :adress ;
+              rdfs:domain :Folkbokföringsadress ;
+              rdfs:range xsd:string ;
+              rdfs:label "distriktskod"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/e-postadress
+:e-postadress rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :adress ;
+              rdfs:domain :ElektroniskAdress ;
+              rdfs:range xsd:string ;
+              rdfs:label "e-postadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/efternamn
+:efternamn rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :namn ;
+           rdfs:domain :FysiskPerson ;
+           rdfs:range xsd:string ;
+           rdfs:label "efternamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/efternamnStyrkt
+:efternamnStyrkt rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :styrktaUppgifter ;
+                 rdfs:domain :FysiskPerson ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "efternamn styrkt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/elkraftsrätt
+:elkraftsrätt rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Fastighet ;
+              rdfs:range xsd:string ;
+              rdfs:label "elkraftsrätt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/firmaBeskrivning
+:firmaBeskrivning rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Företag ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "firma beskrivning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/folkbokföringsdatum
+:folkbokföringsdatum rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :datum ;
+                     rdfs:domain :Folkbokföringsfastighet ;
+                     rdfs:range xsd:date ;
+                     rdfs:label "folkbokföringsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/fornlämning
+:fornlämning rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Fastighet ;
+             rdfs:range xsd:string ;
+             rdfs:label "fornlämning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/fortsätter
+:fortsätter rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :avfördDatum ;
+            rdfs:domain :Likvidation ;
+            rdfs:range xsd:date ;
+            rdfs:label "fortsätter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/födelsesdatum
+:födelsesdatum rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :datum ;
+               rdfs:domain :FysiskPerson ;
+               rdfs:range xsd:date ;
+               rdfs:label "födelsesdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/förnamn
+:förnamn rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :namn ;
+         rdfs:domain :FysiskPerson ;
+         rdfs:range xsd:string ;
+         rdfs:label "förnamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/förnamnStyrkt
+:förnamnStyrkt rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :styrktaUppgifter ;
+               rdfs:domain :FysiskPerson ;
+               rdfs:range xsd:string .
+
+
+###  http://kg.arbetsformedlingen.se/person/förnyelsesdatum
+:förnyelsesdatum rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :datum ;
+                 rdfs:domain :Samordningsnummeruppgifter ;
+                 rdfs:range xsd:date ;
+                 rdfs:label "förnyelsesdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/förstaAnställning
+:förstaAnställning rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Arbetsgivarregistrerad ;
+                   rdfs:range xsd:date ;
+                   rdfs:label "första anställning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/förstaLön
+:förstaLön rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Arbetsgivarregistrerad ;
+           rdfs:range xsd:date ;
+           rdfs:label "första lön"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/giltigFrån
+:giltigFrån rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :giltighet ;
+            rdfs:domain :Arbetsställe ,
+                        :Kontaktväg ,
+                        :Näringsförbud ;
+            rdfs:range xsd:dateTime ;
+            rdfs:label "giltig från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/giltigTill
+:giltigTill rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :giltighet ;
+            rdfs:domain :Adress ,
+                        :Arbetsställe ,
+                        :Kontaktväg ;
+            rdfs:range xsd:dateTime ;
+            rdfs:label "giltig till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/giltighet
+:giltighet rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :datum ;
+           rdfs:label "giltighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/gruvMineralTorv
+:gruvMineralTorv rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Fastighet ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "gruv/mineral/torv"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/hänvisningsnummer
+:hänvisningsnummer rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :FysiskPerson ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "hänvisningsnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsbeteckningAvregistrerad
+:identitetsbeteckningAvregistrerad rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :Identitetsbeteckning ;
+                                   rdfs:range xsd:date ;
+                                   rdfs:comment "Till det datum en person kan använda en identitetsbeteckning."@sv ;
+                                   rdfs:label "Identitetsbeteckning avregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsbeteckningRegistrerad
+:identitetsbeteckningRegistrerad rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Identitetsbeteckning ;
+                                 rdfs:range xsd:date ;
+                                 rdfs:comment "Från det datum en identitetsbeteckning är tilldelad en fysisk eller juridisk person."@sv ;
+                                 rdfs:label "Identitetsbeteckning registrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsbeteckningTyp
+:identitetsbeteckningTyp rdf:type owl:DatatypeProperty ;
+                         rdfs:label "Identitetsbeteckning typ"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/identitetsstatusdatum
+:identitetsstatusdatum rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :datum ;
+                       rdfs:domain :Identitetsstatus ;
+                       rdfs:range xsd:date ;
+                       rdfs:label "identitetsstatusdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/immunitetsnummer
+:immunitetsnummer rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                  rdfs:domain :FysiskPerson ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "Immunitetsnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ingivareDödsfall
+:ingivareDödsfall rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :FysiskPerson ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "ingivare dödsfall"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/inledd
+:inledd rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :avfördDatum ;
+        rdfs:domain :Avvecklingsförfarande ;
+        rdfs:range xsd:date .
+
+
+###  http://kg.arbetsformedlingen.se/person/invandringsdatum
+:invandringsdatum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :datum ;
+                  rdfs:domain :Invandringsuppgifter ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "invandringsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/kod
+:kod rdf:type owl:DatatypeProperty ;
+     rdfs:comment "kod"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/kodFörTiltalsnamn
+:kodFörTiltalsnamn rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :namn ;
+                   rdfs:domain :FysiskPerson ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "kod för tiltalsnamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/koordinat
+:koordinat rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Fastighet ;
+           rdfs:range xsd:string ;
+           rdfs:label "koordinat"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/könDödföttBarn
+:könDödföttBarn rdf:type owl:DatatypeProperty ;
+                rdfs:domain :DödföttBarn ;
+                rdfs:range xsd:string ;
+                rdfs:comment "kön dödfött barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/lagfart
+:lagfart rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Fastighet ;
+         rdfs:range xsd:string ;
+         rdfs:comment "pnr eller orgnr"@sv ;
+         rdfs:label "lagfart"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/lagfartsanmärkning
+:lagfartsanmärkning rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :lagfart ;
+                    rdfs:domain :Fastighet ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "lagfartsanmärkning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/medborgarskapFrån
+:medborgarskapFrån rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :datum ;
+                   rdfs:domain :Medborgarskap ;
+                   rdfs:range xsd:date ;
+                   rdfs:label "medborgarskap från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/medborgarskapTill
+:medborgarskapTill rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :datum ;
+                   rdfs:domain :Medborgarskap ;
+                   rdfs:range xsd:date ;
+                   rdfs:label "medborgarskap till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/mellannamn
+:mellannamn rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :namn ;
+            rdfs:domain :FysiskPerson ;
+            rdfs:range xsd:string ;
+            rdfs:label "mellannamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/mellannamnStyrkt
+:mellannamnStyrkt rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :styrktaUppgifter ;
+                  rdfs:label "mellannamn styrkt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/namn
+:namn rdf:type owl:DatatypeProperty ;
+      rdfs:label "namn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/namnPåFöretag
+:namnPåFöretag rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :namn ;
+               rdfs:domain :Företag ;
+               rdfs:range xsd:string ;
+               rdfs:label "namn på företag"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/namnPåFöretagFra
+:namnPåFöretagFra rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :namn ;
+                  rdfs:domain :Företag ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:label "namn på företag fra"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/namnPåFöretagTill
+:namnPåFöretagTill rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :namn ;
+                   rdfs:domain :Företag ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:label "namn på företag till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/namnskyddslöpnummer
+:namnskyddslöpnummer rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :namn ;
+                     rdfs:domain :Företag ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "aviseringsnamn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/naturvårdsbestämmelser
+:naturvårdsbestämmelser rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Fastighet ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "naturvårdsbestämmelser"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nordisktPersonnummerDanmark
+:nordisktPersonnummerDanmark rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                             rdfs:domain :Invandringsuppgifter ;
+                             rdfs:range xsd:string ;
+                             rdfs:label "nordiskt personnummer Danmark"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nordisktPersonnummerFinland
+:nordisktPersonnummerFinland rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                             rdfs:domain :Invandringsuppgifter ;
+                             rdfs:range xsd:string ;
+                             rdfs:label "nordiskt personnummer Finland"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nordisktPersonnummerFäröarna
+:nordisktPersonnummerFäröarna rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                              rdfs:domain :Invandringsuppgifter ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "nordiskt personnummer Färöarna"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nordisktPersonnummerIsland
+:nordisktPersonnummerIsland rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                            rdfs:domain :Invandringsuppgifter ;
+                            rdfs:range xsd:string ;
+                            rdfs:label "nordiskt personnummer Island"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/nordisktPersonnummerNorge
+:nordisktPersonnummerNorge rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                           rdfs:domain :Invandringsuppgifter ;
+                           rdfs:range xsd:string ;
+                           rdfs:label "nordiskt personnummer Norge"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ordningsnummer
+:ordningsnummer rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :namn ;
+                rdfs:domain :FysiskPerson ;
+                rdfs:range xsd:string .
+
+
+###  http://kg.arbetsformedlingen.se/person/organisationsnummer
+:organisationsnummer rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                     rdfs:domain :JuridiskPerson ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "Organisationsnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/personnummer
+:personnummer rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :identitetsbeteckningTyp ;
+              rdfs:domain :FysiskPerson ;
+              rdfs:range xsd:string ;
+              rdfs:label "Personnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/personnummerFar
+:personnummerFar rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :DödföttBarn ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Personnummer for far oppgitt for dødfødt barn."@no ;
+                 rdfs:label "personnummer far"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/planinformation
+:planinformation rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Fastighet ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "planinformation"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/postnummer
+:postnummer rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :adress ;
+            rdfs:domain :Belägenhetsadress ,
+                        :Folkbokföringsadress ,
+                        :FöregåendeFolkbokföringsadress ,
+                        :SärskildPostadress ;
+            rdfs:range xsd:string .
+
+
+###  http://kg.arbetsformedlingen.se/person/postort
+:postort rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :adress ;
+         rdfs:domain :Folkbokföringsadress ,
+                     :FöregåendeFolkbokföringsadress ,
+                     :SärskildPostadress ;
+         rdfs:range xsd:string ;
+         rdfs:label "postort"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/pågår
+:pågår rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :avfördDatum ;
+       rdfs:domain :ÖvertagandeIFusion ;
+       rdfs:range xsd:date ;
+       rdfs:label "pågår"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/rangordningstall
+:rangordningstall rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Näringsgren ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "rangordningstall"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/registreradDatum
+:registreradDatum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :registreringsdatum ;
+                  rdfs:domain :GodkändForF-skatt ,
+                              :Momsregistrerad ;
+                  rdfs:range xsd:date ;
+                  rdfs:label "registrerad datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/registreringdatumFirma
+:registreringdatumFirma rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Företag ;
+                        rdfs:range xsd:dateTime ;
+                        rdfs:label "registreringdatum firma"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/registreringsdatum
+:registreringsdatum rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :datum ;
+                    rdfs:label "registreringsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/relationsdatumFrån
+:relationsdatumFrån rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :datum ;
+                    rdfs:domain :Relation ;
+                    rdfs:range xsd:date ;
+                    rdfs:label "relationsdatum från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/relationsdatumTill
+:relationsdatumTill rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :datum ;
+                    rdfs:domain :Relation ;
+                    rdfs:range xsd:date ;
+                    rdfs:label "relationsdatum till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/rösträttsdatum
+:rösträttsdatum rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :adress ;
+                rdfs:domain :Utlandsadress ;
+                rdfs:range xsd:date ;
+                rdfs:label "rösträttsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/röstvarde
+:röstvarde rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Aktieslag ;
+           rdfs:range xsd:string ;
+           rdfs:label "röstvarde"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/samordningsnummer
+:samordningsnummer rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :identitetsbeteckningTyp ;
+                   rdfs:domain :FysiskPerson ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "Samordningsnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/sekretessmarkering
+:sekretessmarkering rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :FysiskPerson ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "sekretessmarkering"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/skyddadFolkboksföring
+:skyddadFolkboksföring rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :FysiskPerson ;
+                       rdfs:range xsd:string ;
+                       rdfs:label "skyddad folkboksföring"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/styrktaUppgifter
+:styrktaUppgifter rdf:type owl:DatatypeProperty ;
+                  rdfs:label "styrkta uppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/taxeringsenhetsuppgifter
+:taxeringsenhetsuppgifter rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Fastighet ;
+                          rdfs:range xsd:string ;
+                          rdfs:label "taxeringsenhetsuppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/telefonnummer
+:telefonnummer rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string .
+
+
+###  http://kg.arbetsformedlingen.se/person/tildelningsdatum
+:tildelningsdatum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :datum ;
+                  rdfs:domain :Samordningsnummeruppgifter ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:label "tildelningsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/tomträttsinnehav
+:tomträttsinnehav rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Fastighet ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "tomträttsinnehav"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/uppehållsrätt
+:uppehållsrätt rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Invandringsuppgifter ;
+               rdfs:range xsd:string ;
+               rdfs:label "uppehållsrätt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/uppgiftsmånad
+:uppgiftsmånad rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Arbetsgivarregistrerad ;
+               rdfs:range xsd:gMonth ;
+               rdfs:label "uppgiftsmånad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/upphävd
+:upphävd rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :avfördDatum ;
+         rdfs:domain :Avvecklingsförfarande ;
+         rdfs:range xsd:date ;
+         rdfs:label "upphävd"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/upphävdAvRätt
+:upphävdAvRätt rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :avfördDatum ;
+               rdfs:domain :Konkurs ;
+               rdfs:range xsd:date ;
+               rdfs:label "upphävd av rätt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/upphör
+:upphör rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :avfördDatum ;
+        rdfs:domain :Avvecklingsförfarande ;
+        rdfs:range xsd:date ;
+        rdfs:label "upphör"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/upplöstGenomFusion
+:upplöstGenomFusion rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ÖvertagandeIFusion ;
+                    rdfs:label "upplöst genom fusion"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/uppsättningSNI-kodFrån
+:uppsättningSNI-kodFrån rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Näringsgren ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "uppsättning SNI-kod från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/uppsättningSNI-kodTill
+:uppsättningSNI-kodTill rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Näringsgren ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "uppsättning SNI-kod till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/utdelningsadress
+:utdelningsadress rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :adress ;
+                  rdfs:domain :Postadress ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "utdelningsadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/vilandeförklaringsdatum
+:vilandeförklaringsdatum rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :datum ;
+                         rdfs:domain :Samordningsnummeruppgifter ;
+                         rdfs:range xsd:date ;
+                         rdfs:label "vilandeförklaringsdatum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/vårdnadsdatumFrån
+:vårdnadsdatumFrån rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :datum ;
+                   rdfs:domain :Relation ;
+                   rdfs:range xsd:date ;
+                   rdfs:label "vårdnadsdatum från"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/vårdnadsdatumTill
+:vårdnadsdatumTill rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :datum ;
+                   rdfs:domain :Relation ;
+                   rdfs:range xsd:date ;
+                   rdfs:label "vårdnadsdatum till"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ärendetypKod
+:ärendetypKod rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :kod ;
+              rdfs:domain :FysiskPerson ;
+              rdfs:range xsd:string ;
+              rdfs:comment "ärendetyp kod"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/återkalladDatum
+:återkalladDatum rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :datum ;
+                 rdfs:domain :GodkändForF-skatt ;
+                 rdfs:range xsd:date ;
+                 rdfs:label "återkallad datum"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/överlåtandePågår
+:överlåtandePågår rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :avfördDatum ;
+                  rdfs:domain :ÖvertagandeVidDelning ;
+                  rdfs:range xsd:date ;
+                  rdfs:label "överlåtande pågår"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/övertagandePågår
+:övertagandePågår rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :avfördDatum ;
+                  rdfs:domain :ÖvertagandeVidDelning ;
+                  rdfs:range xsd:date ;
+                  rdfs:label "övertagande pågår"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/3d-utrymne
+<http://kg.arbetsformedlingen.se/person/3d-utrymne> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain :Fastighet ;
+                                                    rdfs:range xsd:string ;
+                                                    rdfs:label "3d-utrymne"@sv .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://kg.arbetsformedlingen.se/person/Adress
+:Adress rdf:type owl:Class ;
+        rdfs:subClassOf :Kontaktväg .
+
+
+###  http://kg.arbetsformedlingen.se/person/Aktier
+:Aktier rdf:type owl:Class ;
+        rdfs:label "Aktier"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Aktieslag
+:Aktieslag rdf:type owl:Class ;
+           rdfs:label "Aktieslag"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AldrigFolkbokfördRelationsperson
+:AldrigFolkbokfördRelationsperson rdf:type owl:Class ;
+                                  rdfs:subClassOf :FysiskPerson ;
+                                  rdfs:label "Aldrig folkbokförd relationsperson"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Andelsfastighet
+:Andelsfastighet rdf:type owl:Class ;
+                 rdfs:subClassOf :Fastighet ;
+                 rdfs:label "Andelsfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Arbetsgivarregistrerad
+:Arbetsgivarregistrerad rdf:type owl:Class ;
+                        rdfs:label "Arbetsgivarregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Arbetsställe
+:Arbetsställe rdf:type owl:Class ;
+              rdfs:label "Arbetsställe"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ArbetsställeStatus
+:ArbetsställeStatus rdf:type owl:Class ;
+                    rdfs:subClassOf :Status ;
+                    rdfs:label "Arbetsställe status"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ArbetsställeTyp
+:ArbetsställeTyp rdf:type owl:Class ;
+                 rdfs:subClassOf :Typ ;
+                 rdfs:label "Arbetsställe typ"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avregistrerad
+:Avregistrerad rdf:type owl:Class ;
+               rdfs:label "Avregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avregistreringsorsak
+:Avregistreringsorsak rdf:type owl:Class ;
+                      rdfs:subClassOf :Typ ;
+                      rdfs:label "Avregistreringsorsak"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avvecklingsförfarande
+:Avvecklingsförfarande rdf:type owl:Class ;
+                       rdfs:label "Avvecklingsförfarande"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Belägenhetsadress
+:Belägenhetsadress rdf:type owl:Class ;
+                   rdfs:subClassOf :Adress .
+
+
+###  http://kg.arbetsformedlingen.se/person/Civilstånd
+:Civilstånd rdf:type owl:Class ;
+            rdfs:label "Civilstånd"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/DödföttBarn
+:DödföttBarn rdf:type owl:Class ;
+             rdfs:subClassOf :FysiskPerson .
+
+
+###  http://kg.arbetsformedlingen.se/person/ElektroniskAdress
+:ElektroniskAdress rdf:type owl:Class ;
+                   rdfs:subClassOf :Adress ;
+                   rdfs:label "Elektronisk adress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Fastighet
+:Fastighet rdf:type owl:Class ;
+           rdfs:label "Fastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Fiskesamfällighet
+:Fiskesamfällighet rdf:type owl:Class ;
+                   rdfs:subClassOf :Fastighet ;
+                   rdfs:label "Fiskesamfällighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Folkbokföringsadress
+:Folkbokföringsadress rdf:type owl:Class ;
+                      rdfs:subClassOf :Postadress ;
+                      rdfs:label "Folkbokföringsadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Folkbokföringsfastighet
+:Folkbokföringsfastighet rdf:type owl:Class ;
+                         rdfs:subClassOf :Fastighet ;
+                         rdfs:label "Folkbokföringsfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Folkbokföringstyp
+:Folkbokföringstyp rdf:type owl:Class ;
+                   rdfs:subClassOf :Typ ;
+                   rdfs:label "Folkbokföringstyp"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/FysiskPerson
+:FysiskPerson rdf:type owl:Class ;
+              rdfs:subClassOf :Person ;
+              rdfs:label "Fysisk person"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/FöregåendeFolkbokföringsadress
+:FöregåendeFolkbokföringsadress rdf:type owl:Class ;
+                                rdfs:subClassOf :Postadress ;
+                                rdfs:label "Föregående folkbokföringsadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Företag
+:Företag rdf:type owl:Class ;
+         rdfs:subClassOf :JuridiskPerson ;
+         rdfs:label "Företag"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Företagsrekonstruksjon
+:Företagsrekonstruksjon rdf:type owl:Class ;
+                        rdfs:subClassOf :Avvecklingsförfarande ;
+                        rdfs:label "Företagsrekonstruksjon"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Församling
+:Församling rdf:type owl:Class ;
+            rdfs:subClassOf :GeografisktBegrepp ;
+            rdfs:label "Församling"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/GeografisktBegrepp
+:GeografisktBegrepp rdf:type owl:Class ;
+                    rdfs:label "Geografiskt begrepp"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/GodkändForF-skatt
+:GodkändForF-skatt rdf:type owl:Class ;
+                   rdfs:label "Godkänd for F-skatt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Identitetsbeteckning
+:Identitetsbeteckning rdf:type owl:Class ;
+                      rdfs:label "Identitetsbeteckning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Identitetsstatus
+:Identitetsstatus rdf:type owl:Class ;
+                  rdfs:subClassOf :Status .
+
+
+###  http://kg.arbetsformedlingen.se/person/Invandringsuppgifter
+:Invandringsuppgifter rdf:type owl:Class ;
+                      rdfs:label "Invandringsuppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/JuridiskPerson
+:JuridiskPerson rdf:type owl:Class ;
+                rdfs:subClassOf :Person ;
+                rdfs:label "Juridisk person"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Kommun
+:Kommun rdf:type owl:Class ;
+        rdfs:subClassOf :GeografisktBegrepp ;
+        rdfs:label "Kommun"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Konkurs
+:Konkurs rdf:type owl:Class ;
+         rdfs:subClassOf :Avvecklingsförfarande .
+
+
+###  http://kg.arbetsformedlingen.se/person/Kontaktväg
+:Kontaktväg rdf:type owl:Class ;
+            rdfs:label "Kontaktväg"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Land
+:Land rdf:type owl:Class ;
+      rdfs:subClassOf :GeografisktBegrepp ;
+      rdfs:label "Land"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Likvidation
+:Likvidation rdf:type owl:Class ;
+             rdfs:subClassOf :Avvecklingsförfarande ;
+             rdfs:label "Likvidation"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Län
+:Län rdf:type owl:Class ;
+     rdfs:subClassOf :GeografisktBegrepp ;
+     rdfs:label "Län"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Medborgarskap
+:Medborgarskap rdf:type owl:Class ;
+               rdfs:label "Medborgarskap"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Momsregistrerad
+:Momsregistrerad rdf:type owl:Class ;
+                 rdfs:label "Momsregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Myndighet
+:Myndighet rdf:type owl:Class ;
+           rdfs:label "Myndighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Näringsförbud
+:Näringsförbud rdf:type owl:Class ;
+               rdfs:label "Näringsförbud"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Näringsgren
+:Näringsgren rdf:type owl:Class ;
+             rdfs:label "Näringsgren"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/OrsakIdentitetsstatus
+:OrsakIdentitetsstatus rdf:type owl:Class ;
+                       rdfs:subClassOf :Typ ;
+                       rdfs:label "Orsak identitetsstatus"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Ort
+:Ort rdf:type owl:Class ;
+     rdfs:subClassOf :GeografisktBegrepp ;
+     rdfs:label "Födelseort"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Person
+:Person rdf:type owl:Class ;
+        rdfs:label "Person"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Postadress
+:Postadress rdf:type owl:Class ;
+            rdfs:subClassOf :Adress ;
+            rdfs:label "Postadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Relation
+:Relation rdf:type owl:Class ;
+          rdfs:label "Relation"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Relationsstatus
+:Relationsstatus rdf:type owl:Class ;
+                 rdfs:subClassOf :Status ;
+                 rdfs:label "Relationsstatus"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Relationsstyp
+:Relationsstyp rdf:type owl:Class ;
+               rdfs:subClassOf :Typ ;
+               rdfs:label "Relationsstyp"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Samfällighet
+:Samfällighet rdf:type owl:Class ;
+              rdfs:subClassOf :Fastighet ;
+              rdfs:label "Samfällighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Samordningsnummeruppgifter
+:Samordningsnummeruppgifter rdf:type owl:Class ;
+                            rdfs:label "Samordningsnummeruppgifter"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Skatteform
+:Skatteform rdf:type owl:Class ;
+            rdfs:label "Skatteform"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Status
+:Status rdf:type owl:Class ;
+        rdfs:comment "Samlebegrep for statuser."@no ;
+        rdfs:label "Status"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/SärskildPostadress
+:SärskildPostadress rdf:type owl:Class ;
+                    rdfs:subClassOf :Postadress ;
+                    rdfs:label "Särskild postadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Telefonnummer
+:Telefonnummer rdf:type owl:Class ;
+               rdfs:subClassOf :Kontaktväg ;
+               rdfs:label "Telefonnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Typ
+:Typ rdf:type owl:Class ;
+     rdfs:comment "Samleklasse for type-entiteter."@no ;
+     rdfs:label "Typ"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Utlandsadress
+:Utlandsadress rdf:type owl:Class ;
+               rdfs:subClassOf :Postadress ;
+               rdfs:label "Utlandsadress"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Ägarlägenhetsfastighet
+:Ägarlägenhetsfastighet rdf:type owl:Class ;
+                        rdfs:subClassOf :Fastighet ;
+                        rdfs:label "Ägarlägenhetsfastighet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ÖvertagandeIFusion
+:ÖvertagandeIFusion rdf:type owl:Class ;
+                    rdfs:subClassOf :Avvecklingsförfarande ;
+                    rdfs:label "Övertagande i fusion"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/ÖvertagandeVidDelning
+:ÖvertagandeVidDelning rdf:type owl:Class ;
+                       rdfs:subClassOf :Avvecklingsförfarande ;
+                       rdfs:label "Övertagande vid delning"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/3D-Fastighet
+<http://kg.arbetsformedlingen.se/person/3D-Fastighet> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Fastighet ;
+                                                      rdfs:label "3D-Fastighet"@sv .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://kg.arbetsformedlingen.se/person/A
+:A rdf:type owl:NamedIndividual ,
+            :Aktieslag .
+
+
+###  http://kg.arbetsformedlingen.se/person/Adoptivfar
+:Adoptivfar rdf:type owl:NamedIndividual ,
+                     :Relationsstyp ;
+            rdfs:label "Adoptivfar"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Adoptivmor
+:Adoptivmor rdf:type owl:NamedIndividual ,
+                     :Relationsstyp ;
+            rdfs:label "Adoptivmor"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AdoptivtBarn
+:AdoptivtBarn rdf:type owl:NamedIndividual ,
+                       :Relationsstyp ;
+              rdfs:label "Adoptivt barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Aktivt
+:Aktivt rdf:type owl:NamedIndividual ,
+                 :ArbetsställeStatus ,
+                 :Identitetsstatus ;
+        rdfs:label "Aktivt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AnnanOrsak
+:AnnanOrsak rdf:type owl:NamedIndividual ,
+                     :OrsakIdentitetsstatus ;
+            rdfs:label "Annan orsak"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AnnanPerson
+:AnnanPerson rdf:type owl:NamedIndividual ,
+                      :Relationsstyp ;
+             rdfs:label "Annan person"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Annulerad
+:Annulerad rdf:type owl:NamedIndividual ,
+                    :Relationsstatus ;
+           rdfs:label "Annulerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avliden
+:Avliden rdf:type owl:NamedIndividual ,
+                  :Avregistreringsorsak ,
+                  :OrsakIdentitetsstatus ;
+         rdfs:label "Avliden"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avregistrerat
+:Avregistrerat rdf:type owl:NamedIndividual ,
+                        :Identitetsstatus ;
+               rdfs:label "Avregistrerat"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Avslutad
+:Avslutad rdf:type owl:NamedIndividual ,
+                   :Relationsstatus ;
+          rdfs:label "Avslutad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AvslutadAvliden
+:AvslutadAvliden rdf:type owl:NamedIndividual ,
+                          :Relationsstatus ;
+                 rdfs:label "Avslutad pga avliden"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/AvslutadInvandring
+:AvslutadInvandring rdf:type owl:NamedIndividual ,
+                             :Relationsstatus ;
+                    rdfs:label "Avslutad pga invandring"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/B
+:B rdf:type owl:NamedIndividual ,
+            :Aktieslag .
+
+
+###  http://kg.arbetsformedlingen.se/person/Barn
+:Barn rdf:type owl:NamedIndividual ,
+               :Relationsstyp ;
+      rdfs:label "Barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/BortadopteratBarn
+:BortadopteratBarn rdf:type owl:NamedIndividual ,
+                            :Relationsstyp ;
+                   rdfs:label "Bortadopterat barn"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/C
+:C rdf:type owl:NamedIndividual ,
+            :Aktieslag .
+
+
+###  http://kg.arbetsformedlingen.se/person/D
+:D rdf:type owl:NamedIndividual ,
+            :Aktieslag .
+
+
+###  http://kg.arbetsformedlingen.se/person/DödföttBarn
+:DödföttBarn rdf:type owl:NamedIndividual ,
+                      :Relationsstyp .
+
+
+###  http://kg.arbetsformedlingen.se/person/EfterlevandePartner
+:EfterlevandePartner rdf:type owl:NamedIndividual ,
+                              :Civilstånd ;
+                     rdfs:label "Efterlevande partner"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/EjHuvudArbetsställe
+:EjHuvudArbetsställe rdf:type owl:NamedIndividual ,
+                              :ArbetsställeTyp ;
+                     rdfs:label "Ej huvud arbetsställe"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/F
+:F rdf:type owl:NamedIndividual ,
+            :Skatteform .
+
+
+###  http://kg.arbetsformedlingen.se/person/FA
+:FA rdf:type owl:NamedIndividual ,
+             :Skatteform .
+
+
+###  http://kg.arbetsformedlingen.se/person/FalskIdentitet
+:FalskIdentitet rdf:type owl:NamedIndividual ,
+                         :Avregistreringsorsak ;
+                rdfs:label "Falsk identitet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Far
+:Far rdf:type owl:NamedIndividual ,
+              :Relationsstyp ;
+     rdfs:label "Far"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Folkbokförd
+:Folkbokförd rdf:type owl:NamedIndividual ,
+                      :Folkbokföringstyp ;
+             rdfs:label "Folkbokförd"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Försvunnen
+:Försvunnen rdf:type owl:NamedIndividual ,
+                     :Avregistreringsorsak ,
+                     :Folkbokföringstyp ;
+            rdfs:label "Försvunnen"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/FörsvunnenAvliden
+:FörsvunnenAvliden rdf:type owl:NamedIndividual ,
+                            :Avregistreringsorsak ;
+                   rdfs:label "Försvunnen avliden"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/FörsvunnenFalskIdentitet
+:FörsvunnenFalskIdentitet rdf:type owl:NamedIndividual ,
+                                   :Avregistreringsorsak ;
+                          rdfs:label "Försvunnen falsk identitet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Förälder
+:Förälder rdf:type owl:NamedIndividual ,
+                   :Relationsstyp ;
+          rdfs:label "Förälder"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/GammaltPersonnummer
+:GammaltPersonnummer rdf:type owl:NamedIndividual ,
+                              :Avregistreringsorsak ;
+                     rdfs:label "Gammalt personnummer"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Gift
+:Gift rdf:type owl:NamedIndividual ,
+               :Civilstånd ;
+      rdfs:label "Gift"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/HuvudArbetsställe
+:HuvudArbetsställe rdf:type owl:NamedIndividual ,
+                            :ArbetsställeTyp ;
+                   rdfs:label "Huvud arbetsställe"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Maka
+:Maka rdf:type owl:NamedIndividual ,
+               :Relationsstyp ;
+      owl:sameAs :Make ;
+      rdfs:label "Maka"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Make
+:Make rdf:type owl:NamedIndividual ,
+               :Relationsstyp ;
+      rdfs:label "Make"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Mor
+:Mor rdf:type owl:NamedIndividual ,
+              :Relationsstyp ;
+     rdfs:label "Mor"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Nedlagt
+:Nedlagt rdf:type owl:NamedIndividual ,
+                  :ArbetsställeStatus ;
+         rdfs:label "Nedlagt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Nyregistrerad
+:Nyregistrerad rdf:type owl:NamedIndividual ,
+                        :Relationsstatus ;
+               rdfs:label "Nyregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/NyregistreradPnrByte
+:NyregistreradPnrByte rdf:type owl:NamedIndividual ,
+                               :Relationsstatus ;
+                      rdfs:label "Nyregistrerad pga pnr byte"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Ogift
+:Ogift rdf:type owl:NamedIndividual ,
+                :Civilstånd ;
+       rdfs:label "Ogift"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Partner
+:Partner rdf:type owl:NamedIndividual ,
+                  :Civilstånd ,
+                  :Relationsstyp ;
+         rdfs:label "Partner"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Rättad
+:Rättad rdf:type owl:NamedIndividual ,
+                 :Relationsstatus ;
+        rdfs:label "Rättad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Skild
+:Skild rdf:type owl:NamedIndividual ,
+                :Civilstånd ;
+       rdfs:label "Skild"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/SkildPartner
+:SkildPartner rdf:type owl:NamedIndividual ,
+                       :Civilstånd ;
+              rdfs:label "Skild partner"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/TeknisktAvregistrerad
+:TeknisktAvregistrerad rdf:type owl:NamedIndividual ,
+                                :Avregistreringsorsak ;
+                       rdfs:label "Tekniskt avregistrerad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Tidsfrist
+:Tidsfrist rdf:type owl:NamedIndividual ,
+                    :OrsakIdentitetsstatus ;
+           rdfs:label "Tidsfrist"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Utvandrad
+:Utvandrad rdf:type owl:NamedIndividual ,
+                    :Folkbokföringstyp ;
+           rdfs:label "Utvandrad"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Utvandrat
+:Utvandrat rdf:type owl:NamedIndividual ,
+                    :Avregistreringsorsak ;
+           rdfs:label "Utvandrat"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/UtvandratAvliden
+:UtvandratAvliden rdf:type owl:NamedIndividual ,
+                           :Avregistreringsorsak ;
+                  rdfs:label "Utvandrat avliden"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/UtvandratFalskIdentitet
+:UtvandratFalskIdentitet rdf:type owl:NamedIndividual ,
+                                  :Avregistreringsorsak ;
+                         rdfs:label "Utvandrat falsk identitet"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Vilandeförklarat
+:Vilandeförklarat rdf:type owl:NamedIndividual ,
+                           :Identitetsstatus ;
+                  rdfs:label "Vilandeförklarat"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/VilandeförklaratStängt
+:VilandeförklaratStängt rdf:type owl:NamedIndividual ,
+                                 :Identitetsstatus ;
+                        rdfs:label "Vilandeförklarat stängt"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Vårdnadshavare
+:Vårdnadshavare rdf:type owl:NamedIndividual ,
+                         :Relationsstyp .
+
+
+###  http://kg.arbetsformedlingen.se/person/Änka
+:Änka rdf:type owl:NamedIndividual ,
+               :Civilstånd ;
+      rdfs:label "Änka"@sv .
+
+
+###  http://kg.arbetsformedlingen.se/person/Änkling
+:Änkling rdf:type owl:NamedIndividual ,
+                  :Civilstånd ;
+         rdfs:label "Änkling"@sv .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:DödföttBarn rdfs:label "Dödfött barn"@sv .
+
+
+:telefonnummer rdfs:label "telefonnummer"@sv .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

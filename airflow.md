@@ -27,7 +27,6 @@ airflow users create \
     --role Admin \
     --email tor-odin.ekle@capgemini.com
 ``` 
-Password: afgrafteknologi
 
 
 Start the web server.

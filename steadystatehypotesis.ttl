@@ -1645,4 +1645,4 @@ The attribute shall be equal or greater than lowStep and equal or less than high
   rdfs:comment "Station supply with load derived from the station output."^^rdf:XMLLiteral ;
   ns0:stereotype "Operation", "Description", <http://iec.ch/TC57/NonStandard/UML#concrete> ;
   ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_LoadModel> ;
-  a rdfs:Class 
+  a rdfs:Class .

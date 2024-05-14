@@ -1,0 +1,309 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ns0: <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#> .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Package_GeographicalLocationProfile>
+  rdfs:label "GeographicalLocationProfile"@en ;
+  a <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory> ;
+  rdfs:comment "This geographical location profile is built on the basis of the IEC profile. There is small difference in one association which is specific for exchanges between TSOs."^^rdf:XMLLiteral .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion>
+  rdfs:label "GeographicalLocationVersion"@en ;
+  rdfs:comment "Version details."^^rdf:XMLLiteral ;
+  ns0:stereotype "Entsoe" ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_GeographicalLocationProfile> ;
+  a rdfs:Class .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.baseUML>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "baseUML"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "iec61970cim16v28_iec61968cim12v08_iec62325cim03v01a" ] ;
+  rdfs:comment "Base UML provided by CIM model manager."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#String>
+  rdfs:label "String"@en ;
+  rdfs:comment "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited."^^rdf:XMLLiteral ;
+  ns0:stereotype "Primitive" ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_DomainProfile> ;
+  a rdfs:Class .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.baseURI>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "baseURI"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://entsoe.eu/Secretariat/2013/Geographical/2" ] ;
+  rdfs:comment "Profile URI used in the Model Exchange header and defined in IEC standards.  It uniquely identifies the Profile and its version. It is given for information only and to identify the closest IEC profile to which this CGMES profile is based on."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.date>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "date"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#Date> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "2014-08-07" ] ;
+  rdfs:comment """Profile creation date
+Form is YYYY-MM-DD for example for January 5, 2009 it is 2009-01-05."""^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Date>
+  rdfs:label "Date"@en ;
+  rdfs:comment "Date as \"yyyy-mm-dd\", which conforms with ISO 8601. UTC time zone is specified as \"yyyy-mm-ddZ\". A local timezone relative UTC is specified as \"yyyy-mm-dd(+/-)hh:mm\"."^^rdf:XMLLiteral ;
+  ns0:stereotype "Primitive" ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_DomainProfile> ;
+  a rdfs:Class .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.differenceModelURI>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "differenceModelURI"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://iec.ch/TC57/61970-552/DifferenceModel/1#" ] ;
+  rdfs:comment "Difference model URI defined by IEC 61970-552."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.entsoeUML>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "entsoeUML"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "entsoe_v2.4.15" ] ;
+  rdfs:comment "UML provided by ENTSO-E."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.entsoeURI>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "entsoeURI"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://entsoe.eu/CIM/GeographicalLocation/2/1" ] ;
+  rdfs:comment """Profile URI defined by ENTSO-E and used in the Model Exchange header.  It uniquely identifies the Profile and its version. The last two elements in the URI (http://entsoe.eu/CIM/GeographicalLocation/yy/zzz) indicate major and minor versions where: 
+- yy - indicates a major version;
+- zzz - indicates a minor version."""^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.modelDescriptionURI>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "modelDescriptionURI"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://iec.ch/TC57/61970-552/ModelDescription/1#" ] ;
+  rdfs:comment "Model Description URI defined by IEC 61970-552."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.namespaceRDF>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "namespaceRDF"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://www.w3.org/1999/02/22-rdf-syntax-ns#" ] ;
+  rdfs:comment "RDF namespace."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.namespaceUML>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "namespaceUML"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "http://iec.ch/TC57/2013/CIM-schema-cim16#" ] ;
+  rdfs:comment "CIM UML namespace."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion.shortName>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "shortName"@en ;
+  rdfs:domain <http://entsoe.eu/CIM/SchemaExtension/3/1#GeographicalLocationVersion> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:isFixed [ rdfs:Literal "GL" ] ;
+  rdfs:comment "The short name of the profile used in profile documentation."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Common>
+  rdfs:label "Common"@en ;
+  a ns0:ClassCategory .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem>
+  rdfs:label "CoordinateSystem"@en ;
+  rdfs:subClassOf <http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject> ;
+  rdfs:comment "Coordinate reference system."^^rdf:XMLLiteral ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Common> ;
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#concrete> ;
+  a rdfs:Class .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem.crsUrn>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "crsUrn"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  rdfs:comment """A Uniform Resource Name (URN) for the coordinate reference system (crs) used to define 'Location.PositionPoints'.
+An example would be the European Petroleum Survey Group (EPSG) code for a coordinate reference system, defined in URN under the Open Geospatial Consortium (OGC) namespace as: urn:ogc:def:uom:EPSG::XXXX, where XXXX is an EPSG code (a full list of codes can be found at the EPSG Registry web site http://www.epsg-registry.org/). To define the coordinate system as being WGS84 (latitude, longitude) using an EPSG OGC, this attribute would be urn:ogc:def:uom:EPSG::4236.
+A profile should limit this code to a set of allowed URNs agreed to by all sending and receiving parties."""^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Location.CoordinateSystem>
+  rdfs:label "CoordinateSystem"@en ;
+  rdfs:comment "Coordinate system used to describe position points of this location."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem.Location> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  ns0:AssociationUsed "Yes" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem.Location>
+  rdfs:label "Location"@en ;
+  rdfs:comment "All locations described with position points in this coordinate system."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#CoordinateSystem> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#Location.CoordinateSystem> ;
+  ns0:multiplicity ns0:M:0..n ;
+  ns0:AssociationUsed "No" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Location>
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf <http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject> ;
+  rdfs:comment "The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more postition points (coordinates) in a given coordinate system."^^rdf:XMLLiteral ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Common> ;
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#concrete> ;
+  a rdfs:Class .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Location.PowerSystemResources>
+  rdfs:label "PowerSystemResources"@en ;
+  rdfs:comment "All power system resources at this location."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#PowerSystemResource> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#PowerSystemResource.Location> ;
+  ns0:multiplicity ns0:M:1 ;
+  ns0:AssociationUsed "Yes" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PowerSystemResource.Location>
+  rdfs:label "Location"@en ;
+  rdfs:comment "Location of this power system resource."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PowerSystemResource> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#Location.PowerSystemResources> ;
+  ns0:multiplicity ns0:M:0..1 ;
+  ns0:AssociationUsed "No" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Location.PositionPoints>
+  rdfs:label "PositionPoints"@en ;
+  rdfs:comment "Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.Location> ;
+  ns0:multiplicity ns0:M:1..n ;
+  ns0:AssociationUsed "No" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.Location>
+  rdfs:label "Location"@en ;
+  rdfs:comment "Location described by this position point."^^rdf:XMLLiteral ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  rdfs:range <http://iec.ch/TC57/2013/CIM-schema-cim16#Location> ;
+  ns0:inverseRoleName <http://iec.ch/TC57/2013/CIM-schema-cim16#Location.PositionPoints> ;
+  ns0:multiplicity ns0:M:1 ;
+  ns0:AssociationUsed "Yes" ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint>
+  rdfs:label "PositionPoint"@en ;
+  rdfs:comment "Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to desribe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values)."^^rdf:XMLLiteral ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Common> ;
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#concrete> ;
+  a rdfs:Class .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.sequenceNumber>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "sequenceNumber"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#Integer> ;
+  ns0:multiplicity ns0:M:0..1 ;
+  rdfs:comment "Zero-relative sequence number of this point within a series of points."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Integer>
+  rdfs:label "Integer"@en ;
+  rdfs:comment "An integer number. The range is unspecified and not limited."^^rdf:XMLLiteral ;
+  ns0:stereotype "Primitive" ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_DomainProfile> ;
+  a rdfs:Class .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.xPosition>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "xPosition"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  rdfs:comment "X axis position."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.yPosition>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "yPosition"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:1..1 ;
+  rdfs:comment "Y axis position."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint.zPosition>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "zPosition"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#PositionPoint> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:0..1 ;
+  rdfs:comment "(if applicable) Z axis position."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Core>
+  rdfs:label "Core"@en ;
+  a ns0:ClassCategory .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject>
+  rdfs:label "IdentifiedObject"@en ;
+  rdfs:comment "This is a root class to provide common identification for all classes needing identification and naming attributes."^^rdf:XMLLiteral ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Core> ;
+  a rdfs:Class .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject.mRID>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "mRID"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:0..1 ;
+  rdfs:comment """Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context. Global uniqueness is easily achieved by using a UUID,  as specified in RFC 4122, for the mRID.  The use of UUID is strongly recommended.
+For CIMXML data files in RDF syntax conforming to IEC 61970-552 Edition 1, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements."""^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject.name>
+  ns0:stereotype <http://iec.ch/TC57/NonStandard/UML#attribute> ;
+  rdfs:label "name"@en ;
+  rdfs:domain <http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject> ;
+  ns0:dataType <http://iec.ch/TC57/2013/CIM-schema-cim16#String> ;
+  ns0:multiplicity ns0:M:0..1 ;
+  rdfs:comment "The name is any free human readable and possibly non unique text naming the object."^^rdf:XMLLiteral ;
+  a rdf:Property .
+
+<http://iec.ch/TC57/2013/CIM-schema-cim16#PowerSystemResource>
+  rdfs:label "PowerSystemResource"@en ;
+  rdfs:subClassOf <http://iec.ch/TC57/2013/CIM-schema-cim16#IdentifiedObject> ;
+  rdfs:comment "A power system resource can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated."^^rdf:XMLLiteral ;
+  ns0:belongsToCategory <http://iec.ch/TC57/2013/CIM-schema-cim16#Package_Core> ;
+  a rdfs:Class .
